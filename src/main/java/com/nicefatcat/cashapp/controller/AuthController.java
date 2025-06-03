@@ -30,6 +30,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<TokenResponseDto> login(@RequestBody LoginDto dto) {
+        System.out.println("Login attempt: " + dto.getEmail());
         User user = userService.authenticate(dto);
         String access = jwtService.generateAccessToken(user);
         String refresh = jwtService.generateRefreshToken(user);

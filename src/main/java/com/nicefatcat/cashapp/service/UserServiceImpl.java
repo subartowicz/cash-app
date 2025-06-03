@@ -20,6 +20,8 @@ public class UserServiceImpl implements UserService {
     public User register(UserRegisterDto dto) {
         User user = User.builder()
                 .email(dto.getEmail())
+                .firstName(dto.getFirstName())
+                .lastName(dto.getLastName())
                 .password(passwordEncoder.encode(dto.getPassword()))
                 .role(Role.USER)
                 .build();
